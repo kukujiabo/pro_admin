@@ -59,7 +59,7 @@ class Goods extends BaseApi {
 
                 'goods_name' => 'goods_name|string|false||商品名称',
 
-                'provider_code' => 'provider_code|string|false||供应商编码'
+                'provider_code' => 'provider_code|string|false||供应商编码',
 
                 'shop_id' => 'shop_id|int|false||店铺id',
 
