@@ -87,6 +87,8 @@ class Goods extends BaseApi {
 
             'addSkuGoods' => array(
 
+                'provider_code' => 'provider_code|string|false||供应商编码',
+
                 'brand_id' => 'brand_id|int|true||品牌id',
 
                 'goods_name' => 'goods_name|string|true||商品名称',
