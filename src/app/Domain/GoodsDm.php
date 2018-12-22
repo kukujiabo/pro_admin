@@ -17,8 +17,8 @@ class GoodsDm {
     $client = PhalApiClient::create()->withHost("http://127.0.0.1:9002");
 
     $request = $client->reset()->withService('App.Goods.AddSkuGoods');
-        
-    foreach($params as $key => $value) {
+
+    foreach($data as $key => $value) {
     
       $request->withParams($key, $value);
     
