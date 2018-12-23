@@ -61,6 +61,8 @@ class Goods extends BaseApi {
 
                 'provider_code' => 'provider_code|string|false||供应商编码',
 
+                'brand_id' => 'brand_id|int|false||品牌id',
+
                 'shop_id' => 'shop_id|int|false||店铺id',
 
                 'category_id' => 'category_id|int|false||商品分类id',
@@ -445,8 +447,6 @@ class Goods extends BaseApi {
     public function getDetail() {
 
       $regulation = array(
-
-          'token' => 'required',
 
           'goods_id' => 'required',
 

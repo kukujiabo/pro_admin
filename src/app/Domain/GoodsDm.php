@@ -37,7 +37,21 @@ class GoodsDm {
    */
   public function editSkuGoods($data) {
 
-    return \App\request('App.Goods.EditSkuGoods', $data);
+    $client = PhalApiClient::create()->withHost("http://127.0.0.1:9002");
+
+    $request = $client->reset()->withService('App.Goods.EditSkuGoods');
+
+    foreach($data as $key => $value) {
+    
+      $request->withParams($key, $value);
+    
+    }
+  
+    $request->withTimeout(3000);
+
+    $response = $request->request();
+
+    return $response->getData();
   
   }
 
@@ -51,7 +65,7 @@ class GoodsDm {
     $client = PhalApiClient::create()->withHost("http://127.0.0.1:9002");
 
     $request = $client->reset()->withService('App.Goods.QueryList');
-        
+
     foreach($params as $key => $value) {
     
       $request->withParams($key, $value);
@@ -69,51 +83,128 @@ class GoodsDm {
   /**
    * 获取商品详情
    */
-  public function getDetail($data) {
+  public function getDetail($params) {
 
-    return \App\request('App.Goods.GetDetail', $data);
+    $params['way'] = 2;
+
+    $client = PhalApiClient::create()->withHost("http://127.0.0.1:9002");
+
+    $request = $client->reset()->withService('App.Goods.GetDetail');
+
+    foreach($params as $key => $value) {
+    
+      $request->withParams($key, $value);
+    
+    }
+  
+    $request->withTimeout(3000);
+
+    $response = $request->request();
+
+    return $response->getData();
   
   }
 
   /**
    * 获取商品图片列表
    */
-  public function getGoodsImages($data) {
+  public function getGoodsImages($params) { // App.GoodsImages.GetAll
     
-    $data['status'] = 1;
+    $params['way'] = 2;
 
-    return \App\request('App.GoodsImages.GetAll', $data);
+    $params['status'] = 1;
+
+    $client = PhalApiClient::create()->withHost("http://127.0.0.1:9002");
+
+    $request = $client->reset()->withService('App.GoodsImages.GetAll');
+
+    foreach($params as $key => $value) {
+    
+      $request->withParams($key, $value);
+    
+    }
+  
+    $request->withTimeout(3000);
+
+    $response = $request->request();
+
+    return $response->getData();
   
   }
 
   /**
    * 获取商品属性列表
    */
-  public function getAttributeList($data) {
-    
-    // $data['active'] = 1;
+  public function getAttributeList($data) { // App.GoodsAttribute.GetAll
 
-    return \App\request('App.GoodsAttribute.GetAll', $data);
+    $params['way'] = 2;
+
+    $client = PhalApiClient::create()->withHost("http://127.0.0.1:9002");
+
+    $request = $client->reset()->withService('App.GoodsAttribute.GetAll');
+
+    foreach($params as $key => $value) {
+    
+      $request->withParams($key, $value);
+    
+    }
+  
+    $request->withTimeout(3000);
+
+    $response = $request->request();
+
+    return $response->getData();
+  
   
   }
 
   /**
    * 获取商品规格值模版列表
    */
-  public function getAttributeValueList($data) {
-    
-    //$data['active'] = 1;
+  public function getAttributeValueList($data) { // App.GoodsAttributeValue.GetAll
 
-    return \App\request('App.GoodsAttributeValue.GetAll', $data);
+    $params['way'] = 2;
+
+    $client = PhalApiClient::create()->withHost("http://127.0.0.1:9002");
+
+    $request = $client->reset()->withService('App.GoodsAttributeValue.GetAll');
+
+    foreach($params as $key => $value) {
+    
+      $request->withParams($key, $value);
+    
+    }
+  
+    $request->withTimeout(3000);
+
+    $response = $request->request();
+
+    return $response->getData();
   
   }
 
   /**
    * 获取sku商品列表
    */
-  public function getGoodsSkuList($data) {
+  public function getGoodsSkuList($data) { // App.GoodsSku.GetAll
     
-    return \App\request('App.GoodsSku.GetAll', $data);
+    $params['way'] = 2;
+
+    $client = PhalApiClient::create()->withHost("http://127.0.0.1:9002");
+
+    $request = $client->reset()->withService('App.GoodsSku.GetAll');
+
+    foreach($params as $key => $value) {
+    
+      $request->withParams($key, $value);
+    
+    }
+  
+    $request->withTimeout(3000);
+
+    $response = $request->request();
+
+    return $response->getData();
   
   }
 

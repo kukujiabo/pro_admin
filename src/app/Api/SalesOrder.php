@@ -34,6 +34,18 @@ class SalesOrder extends BaseApi {
 
         'p_oid' => 'p_oid|string|true||采购订单号',
 
+      ],
+
+      'download' => [
+
+        'p_oid' => 'p_oid|string|false||采购订单号',
+        'begin_date' => 'begin_date|string|false||下单开始时间',
+        'end_date' => 'end_date|string|false||下单结束时间',
+        'ven_code' => 'ven_code|string|false||供应商编码',
+        'dep_code' => 'dep_code|string|false||部门编码',
+        'person_code' => 'person_code|string|false||业务员编码',
+        'fields' => 'fields|string|false||字段'
+
       ]
 
 		]);
@@ -76,4 +88,17 @@ class SalesOrder extends BaseApi {
     return $this->dm->updateOrder($this->retriveRuleParams(__FUNCTION__));
 
   }
+
+  /**
+   * 下载订单列表
+   * @desc 下载订单列表
+   * 
+   * @return stream file
+   */
+  public function download() {
+
+    return $this->dm->download($this->retriveRuleParams(__FUNCTION__));
+
+  }
+
 }
